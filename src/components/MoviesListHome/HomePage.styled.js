@@ -20,14 +20,13 @@ export const Card = styled.li`
   border-radius: 5px;
   overflow: hidden;
   transition: transform 0.5s linear;
-  width: calc(100% / 3 - 16px);
+  width: calc(100% / 5 - 16px);
   margin-right: 16px;
   margin-bottom: 10px;
 `;
 
 export const Img = styled.img`
-  width: 395px;
-  height: 574px;
+  width: 250px;
   overflow: hidden;
   border-radius: 5px;
 `;

@@ -1,7 +1,15 @@
-import { List } from 'components/MoviesListHome/HomePage.styled';
 import moment from 'moment';
-import { Link } from 'components/AppBar/AppBar.styled';
 import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  AfterTitle,
+  DescrTitle,
+  DescrWrap,
+  DetailWrap,
+  Link,
+  LinkWrap,
+  OverviewTitle,
+  Title,
+} from './MovieDetailsView.styled';
 
 const MovieDetailsView = ({ movie }) => {
   const { title, release_date, poster_path, vote_average, genres, overview } =
@@ -15,33 +23,36 @@ const MovieDetailsView = ({ movie }) => {
   };
 
   return (
-    <List>
-      <button type="button" onClick={GoBack}>
-        Go Back
-      </button>
+    <div>
       <div>
-        <h2>
-          {title} <span>({moment(release_date).format('YYYY')})</span>
-        </h2>
+        <button type="button" onClick={GoBack}>
+          Go Back
+        </button>
+      </div>
+
+      <DetailWrap>
         <img
           src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
           alt={title}
-          width={250}
+          width={300}
         />
-        <p>User Score: {vote_average * 10}%</p>
-        <h3>Overview</h3>
-        <span>{overview}</span>
-        <h3>Genres</h3>
-        <p>{genres?.map(({ name }) => name).join(', ')}</p>
-      </div>
-      <h2>Addition information</h2>
-      <Link to="cast">
-        <h3>Cast</h3>
-      </Link>
-      <Link to="reviews">
-        <h3>Reviews</h3>
-      </Link>
-    </List>
+        <DescrWrap>
+          <Title>
+            {title} <span>({moment(release_date).format('YYYY')})</span>
+          </Title>
+          <AfterTitle>User Score: {vote_average * 10}%</AfterTitle>
+          <DescrTitle>Overview</DescrTitle>
+          <OverviewTitle>{overview}</OverviewTitle>
+          <DescrTitle>Genres</DescrTitle>
+          <AfterTitle>{genres?.map(({ name }) => name).join(', ')}</AfterTitle>
+        </DescrWrap>
+      </DetailWrap>
+      <AfterTitle>Addition information</AfterTitle>
+      <LinkWrap>
+        <Link to="cast">Cast</Link>
+        <Link to="reviews">Reviews</Link>
+      </LinkWrap>
+    </div>
   );
 };
 

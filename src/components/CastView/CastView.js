@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchCreditsById } from 'services/ApiFetch';
+import { List, ListItem } from './CastView.styled';
 
 const CastView = () => {
   const [cast, setCast] = useState([]);
@@ -14,23 +15,9 @@ const CastView = () => {
 
   return (
     <div>
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
+      <List>
         {cast?.map(el => (
-          <li
-            key={el.id}
-            style={{
-              width: '260px',
-              display: 'flex',
-              flexDirection: 'column',
-              marginBottom: '20px',
-            }}
-          >
+          <ListItem key={el.id}>
             <img
               src={
                 el.profile_path !== null
@@ -38,14 +25,14 @@ const CastView = () => {
                   : 'https://www.seekpng.com/png/full/423-4235598_no-image-for-noimage-icon.png'
               }
               alt={el.name}
-              width="80"
+              width="250"
             />
 
             <p>{el.name}</p>
             <p>Character: {el.character}</p>
-          </li>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </div>
   );
 };

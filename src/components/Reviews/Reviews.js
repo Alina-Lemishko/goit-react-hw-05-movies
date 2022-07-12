@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviewsById } from 'services/ApiFetch';
+import { OverView, Title } from './Reviews.styled';
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -19,9 +20,9 @@ const Reviews = () => {
           {reviews?.map(el => (
             <li key={el.id}>
               <br />
-              <p>{el.author_details.username}</p>
+              <Title>{el.author_details.username}</Title>
               <br />
-              <p>{el.content}</p>
+              <OverView>{el.content}</OverView>
             </li>
           ))}
         </ul>
