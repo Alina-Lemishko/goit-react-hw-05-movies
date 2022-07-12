@@ -1,5 +1,5 @@
 import { Card, List } from 'components/MoviesListHome/HomePage.styled';
-import { useNavigate, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const MovieView = ({ movies }) => {
   const location = useLocation();
