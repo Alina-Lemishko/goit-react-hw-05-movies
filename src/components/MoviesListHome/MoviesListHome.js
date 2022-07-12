@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { Card, Img, List, Title } from './HomePage.styled';
 
 const MoviesListHome = ({ movies }) => {
@@ -20,3 +21,7 @@ const MoviesListHome = ({ movies }) => {
 };
 
 export default MoviesListHome;
+
+MoviesListHome.propTypes = {
+  movies: PropTypes.array,
+};

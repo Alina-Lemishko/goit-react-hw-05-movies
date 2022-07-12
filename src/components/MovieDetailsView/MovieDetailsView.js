@@ -1,4 +1,5 @@
 import moment from 'moment';
+import PropTypes from 'prop-types';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
   AfterTitle,
@@ -57,3 +58,7 @@ const MovieDetailsView = ({ movie }) => {
 };
 
 export default MovieDetailsView;
+
+// MovieDetailsView.propTypes = {
+//   movie: PropTypes.node,
+// };

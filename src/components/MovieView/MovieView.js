@@ -1,9 +1,15 @@
-import { Card, List } from 'components/MoviesListHome/HomePage.styled';
+import PropTypes from 'prop-types';
 import { NavLink, useLocation } from 'react-router-dom';
+import {
+  Card,
+  Img,
+  List,
+  Title,
+} from 'components/MoviesListHome/HomePage.styled';
 
 const MovieView = ({ movies }) => {
   const location = useLocation();
-  console.log('location', location);
+
   return (
     <div>
       <ul>
@@ -11,11 +17,11 @@ const MovieView = ({ movies }) => {
           {movies.map(el => (
             <Card key={el.id}>
               <NavLink to={`/movies/${el.id}`} state={{ from: location }}>
-                <img
+                <Img
                   src={`https://image.tmdb.org/t/p/w500/${el.poster_path}`}
                   alt={el.title}
                 />
-                <p>{el.title}</p>
+                <Title>{el.title}</Title>
               </NavLink>
             </Card>
           ))}
@@ -26,3 +32,7 @@ const MovieView = ({ movies }) => {
 };
 
 export default MovieView;
+
+MovieView.propTypes = {
+  movies: PropTypes.array,
+};

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import MovieView from 'components/MovieView';
 import { fetchMoviesBySearch } from 'services/ApiFetch';
 
@@ -51,3 +52,8 @@ const MoviesPage = ({ onSubmit, queryForSearch }) => {
 };
 
 export default MoviesPage;
+
+MoviesPage.propTypes = {
+  queryForSearch: PropTypes.string,
+  onSubmit: PropTypes.func,
+};
